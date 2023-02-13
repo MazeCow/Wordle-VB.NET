@@ -27,7 +27,13 @@ Partial Class Form1
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnMinimize = New System.Windows.Forms.Button()
         Me.flowBoard = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.pnlRestart = New System.Windows.Forms.Panel()
+        Me.btnPlayAgainNo = New System.Windows.Forms.Button()
+        Me.btnPlayAgainYes = New System.Windows.Forms.Button()
+        Me.lblResults = New System.Windows.Forms.Label()
         Me.CustomTitle.SuspendLayout()
+        Me.pnlRestart.SuspendLayout()
         Me.SuspendLayout()
         '
         'CustomTitle
@@ -90,12 +96,78 @@ Partial Class Form1
         Me.flowBoard.Size = New System.Drawing.Size(490, 599)
         Me.flowBoard.TabIndex = 1
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(12, 62)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(71, 19)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "WORDLE"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pnlRestart
+        '
+        Me.pnlRestart.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnlRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlRestart.Controls.Add(Me.btnPlayAgainNo)
+        Me.pnlRestart.Controls.Add(Me.btnPlayAgainYes)
+        Me.pnlRestart.Controls.Add(Me.lblResults)
+        Me.pnlRestart.Location = New System.Drawing.Point(-1, 223)
+        Me.pnlRestart.Name = "pnlRestart"
+        Me.pnlRestart.Size = New System.Drawing.Size(522, 174)
+        Me.pnlRestart.TabIndex = 4
+        Me.pnlRestart.Visible = False
+        '
+        'btnPlayAgainNo
+        '
+        Me.btnPlayAgainNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(24, Byte), Integer))
+        Me.btnPlayAgainNo.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.btnPlayAgainNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPlayAgainNo.Font = New System.Drawing.Font("Candara", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.btnPlayAgainNo.ForeColor = System.Drawing.Color.White
+        Me.btnPlayAgainNo.Location = New System.Drawing.Point(268, 78)
+        Me.btnPlayAgainNo.Name = "btnPlayAgainNo"
+        Me.btnPlayAgainNo.Size = New System.Drawing.Size(156, 65)
+        Me.btnPlayAgainNo.TabIndex = 5
+        Me.btnPlayAgainNo.Text = "NO"
+        Me.btnPlayAgainNo.UseVisualStyleBackColor = False
+        '
+        'btnPlayAgainYes
+        '
+        Me.btnPlayAgainYes.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(24, Byte), Integer))
+        Me.btnPlayAgainYes.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.btnPlayAgainYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPlayAgainYes.Font = New System.Drawing.Font("Candara", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.btnPlayAgainYes.ForeColor = System.Drawing.Color.White
+        Me.btnPlayAgainYes.Location = New System.Drawing.Point(95, 78)
+        Me.btnPlayAgainYes.Name = "btnPlayAgainYes"
+        Me.btnPlayAgainYes.Size = New System.Drawing.Size(156, 65)
+        Me.btnPlayAgainYes.TabIndex = 4
+        Me.btnPlayAgainYes.Text = "YES"
+        Me.btnPlayAgainYes.UseVisualStyleBackColor = False
+        '
+        'lblResults
+        '
+        Me.lblResults.Font = New System.Drawing.Font("Candara", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResults.ForeColor = System.Drawing.Color.White
+        Me.lblResults.Location = New System.Drawing.Point(0, 0)
+        Me.lblResults.Name = "lblResults"
+        Me.lblResults.Size = New System.Drawing.Size(521, 75)
+        Me.lblResults.TabIndex = 3
+        Me.lblResults.Text = "placeholder"
+        Me.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(19, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(520, 691)
+        Me.Controls.Add(Me.pnlRestart)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.flowBoard)
         Me.Controls.Add(Me.CustomTitle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -104,7 +176,9 @@ Partial Class Form1
         Me.Text = "Wordle!"
         Me.CustomTitle.ResumeLayout(False)
         Me.CustomTitle.PerformLayout()
+        Me.pnlRestart.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -113,4 +187,9 @@ Partial Class Form1
     Friend WithEvents btnExit As Button
     Friend WithEvents btnMinimize As Button
     Friend WithEvents flowBoard As FlowLayoutPanel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents pnlRestart As Panel
+    Friend WithEvents btnPlayAgainYes As Button
+    Friend WithEvents lblResults As Label
+    Friend WithEvents btnPlayAgainNo As Button
 End Class

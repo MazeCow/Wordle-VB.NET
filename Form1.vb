@@ -39,20 +39,31 @@ Public Class Form1
     Private _word As String
     Property word() As String
         Get
-            Return _word
+            Return _word.ToUpper
         End Get
         Set(ByVal value As String)
             _word = value
         End Set
     End Property
+
+    Private words() As String = My.Resources.newwords.Split(",")
+
     Private Sub setrandomword()
-        Dim words As Array = My.Resources.newwords.Split(",")
         word = words(GetRandom(0, words.Length))
     End Sub
 
     Private cells(5, 4) As Label
 
     Private Sub generateboard()
+        endofgame = False
+        endofgame_forreal = False
+        flowBoard.Controls.Clear()
+        setrandomword()
+        Label2.Text = word
+        currentcell = 0
+        currentrow = 0
+        For cell As Integer = 0 To cells.Length - 1
+        Next
         Dim cellfont As New Font("Candara", 25, FontStyle.Bold)
         For row As Integer = 0 To 5
             For item As Integer = 0 To 4
@@ -68,14 +79,11 @@ Public Class Form1
                     .AutoSize = False
                     .Size = New System.Drawing.Size(90, 90)
                     .Margin = New Padding(4, 4, 4, 4)
-                    'FromLogFont("Candara, 18pt, style=Bold")
                 End With
                 flowBoard.Controls.Add(cell)
                 cells(row, item) = cell
-
             Next
         Next
-        setrandomword()
     End Sub
 
     Private Sub formLoad(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -118,27 +126,120 @@ Public Class Form1
         End Set
     End Property
 
-    Private allowedletters As String = "ABCDEFGHIJKLMNOPQRSTUVXYZ"
+    Private endofgame_forreal As Boolean = False
+
+    Private _lastrow As Boolean = False
+
+    Property lastrow() As Boolean
+        Get
+            If currentrow >= 5 Then
+                Return True
+            Else
+                Return False
+            End If
+        End Get
+        Set(value As Boolean)
+            _lastrow = value
+        End Set
+    End Property
+
+    Private allowedletters As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     Private Sub KeyboardPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        ' Save the last key pressed
-        Static lastKey As Keys = Keys.None
-        lastKey = e.KeyCode
-        If fullrow AndAlso e.KeyCode = Keys.Enter Then
-            '
-            '
-            '
-        End If
-        If allowedletters.Contains(e.KeyCode.ToString.ToUpper) AndAlso Not fullrow Then
-            cells(currentrow, currentcell).Text = e.KeyCode.ToString
-            currentcell += 1
+        If Not endofgame_forreal Then
+
+            'save the last key pressed
+            Static lastKey As Keys = Keys.None
+            lastKey = e.KeyCode
+
+            'type letter
+            If allowedletters.Contains(e.KeyCode.ToString.ToUpper) AndAlso Not fullrow Then
+                cells(currentrow, currentcell).Text = e.KeyCode.ToString
+                currentcell += 1
+            End If
+
+            'backspace
+            If e.KeyCode = Keys.Back Then
+                If currentcell >= 1 Then
+                    currentcell -= 1
+                    cells(currentrow, currentcell).Text = ""
+                End If
+            End If
+
+            'enter
+            If fullrow AndAlso e.KeyCode = Keys.Enter AndAlso validword() Then
+                confirmRow()
+            End If
+
         End If
 
     End Sub
+
+    Dim _end As Boolean = True
+    Property endofgame As Boolean
+        Get
+            _end = True
+            For cellnum As Integer = 0 To 4
+                Dim cellobject As Label = cells(currentrow, cellnum)
+                If word(cellnum) <> cellobject.Text Then
+                    _end = False
+                End If
+            Next
+            Return _end
+        End Get
+        Set(value As Boolean)
+            _end = value
+        End Set
+    End Property
+
+    Private Function validword()
+        Dim word As String = ""
+        For i As Integer = 0 To 4
+            word += cells(currentrow, i).Text.ToUpper()
+        Next
+        Dim valid_word As Boolean = False
+        For x As Integer = 0 To words.Length - 1
+            If words(x).ToUpper = word Then
+                valid_word = True
+            End If
+        Next
+        Return valid_word
+    End Function
 
     Private Sub confirmRow()
+        For cellnum As Integer = 0 To 4
+            Dim cellobject As Label = cells(currentrow, cellnum)
+            If word(cellnum) = cellobject.Text Then
+                cellobject.BackColor = Color.Green
+            ElseIf word.Contains(cellobject.Text) Then
+                cellobject.BackColor = Color.FromArgb(255, 100, 100, 0)
+            End If
+        Next
 
+        If Not endofgame_forreal AndAlso Not endofgame Then
+            If Not lastrow Then
+                currentrow += 1
+            Else
+                pnlRestart.Visible = True
+                lblResults.Text = "YOU LOSE! PLAY AGAIN?"
+            End If
+            currentcell = 0
+        ElseIf endofgame Then
+            endofgame_forreal = True
+            pnlRestart.Visible = True
+            lblResults.Text = "YOU WIN! PLAY AGAIN?"
+        End If
     End Sub
 
+
+
+    Private Sub btnPlayAgainNo_Click(sender As Object, e As EventArgs) Handles btnPlayAgainNo.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnPlayAgainYes_Click(sender As Object, e As EventArgs) Handles btnPlayAgainYes.Click
+        pnlRestart.Visible = False
+        generateboard()
+    End Sub
 End Class
 
 
