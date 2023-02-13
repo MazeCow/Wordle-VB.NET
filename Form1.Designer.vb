@@ -32,6 +32,7 @@ Partial Class Form1
         Me.btnPlayAgainNo = New System.Windows.Forms.Button()
         Me.btnPlayAgainYes = New System.Windows.Forms.Button()
         Me.lblResults = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.CustomTitle.SuspendLayout()
         Me.pnlRestart.SuspendLayout()
         Me.SuspendLayout()
@@ -101,7 +102,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(12, 62)
+        Me.Label2.Location = New System.Drawing.Point(216, 64)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(71, 19)
         Me.Label2.TabIndex = 3
@@ -111,7 +112,6 @@ Partial Class Form1
         'pnlRestart
         '
         Me.pnlRestart.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(8, Byte), Integer))
-        Me.pnlRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlRestart.Controls.Add(Me.btnPlayAgainNo)
         Me.pnlRestart.Controls.Add(Me.btnPlayAgainYes)
         Me.pnlRestart.Controls.Add(Me.lblResults)
@@ -128,10 +128,11 @@ Partial Class Form1
         Me.btnPlayAgainNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPlayAgainNo.Font = New System.Drawing.Font("Candara", 20.0!, System.Drawing.FontStyle.Bold)
         Me.btnPlayAgainNo.ForeColor = System.Drawing.Color.White
-        Me.btnPlayAgainNo.Location = New System.Drawing.Point(268, 78)
+        Me.btnPlayAgainNo.Location = New System.Drawing.Point(275, 78)
         Me.btnPlayAgainNo.Name = "btnPlayAgainNo"
         Me.btnPlayAgainNo.Size = New System.Drawing.Size(156, 65)
-        Me.btnPlayAgainNo.TabIndex = 5
+        Me.btnPlayAgainNo.TabIndex = 1
+        Me.btnPlayAgainNo.TabStop = False
         Me.btnPlayAgainNo.Text = "NO"
         Me.btnPlayAgainNo.UseVisualStyleBackColor = False
         '
@@ -145,7 +146,8 @@ Partial Class Form1
         Me.btnPlayAgainYes.Location = New System.Drawing.Point(95, 78)
         Me.btnPlayAgainYes.Name = "btnPlayAgainYes"
         Me.btnPlayAgainYes.Size = New System.Drawing.Size(156, 65)
-        Me.btnPlayAgainYes.TabIndex = 4
+        Me.btnPlayAgainYes.TabIndex = 0
+        Me.btnPlayAgainYes.TabStop = False
         Me.btnPlayAgainYes.Text = "YES"
         Me.btnPlayAgainYes.UseVisualStyleBackColor = False
         '
@@ -160,12 +162,24 @@ Partial Class Form1
         Me.lblResults.Text = "placeholder"
         Me.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(5, 31)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(192, 78)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "tells u the word for debugging purposes ->"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(19, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(520, 691)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.pnlRestart)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.flowBoard)
@@ -174,6 +188,7 @@ Partial Class Form1
         Me.KeyPreview = True
         Me.Name = "Form1"
         Me.Text = "Wordle!"
+        Me.TopMost = True
         Me.CustomTitle.ResumeLayout(False)
         Me.CustomTitle.PerformLayout()
         Me.pnlRestart.ResumeLayout(False)
@@ -192,4 +207,5 @@ Partial Class Form1
     Friend WithEvents btnPlayAgainYes As Button
     Friend WithEvents lblResults As Label
     Friend WithEvents btnPlayAgainNo As Button
+    Friend WithEvents Label3 As Label
 End Class

@@ -55,6 +55,7 @@ Public Class Form1
     Private cells(5, 4) As Label
 
     Private Sub generateboard()
+        Me.Focus()
         endofgame = False
         endofgame_forreal = False
         flowBoard.Controls.Clear()
@@ -144,7 +145,7 @@ Public Class Form1
     End Property
 
     Private allowedletters As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    Private Sub KeyboardPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    Private Sub KeyboardPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown, lblResults.KeyDown, CustomTitle.KeyDown
         If Not endofgame_forreal Then
 
             'save the last key pressed
@@ -166,7 +167,7 @@ Public Class Form1
             End If
 
             'enter
-            If fullrow AndAlso e.KeyCode = Keys.Enter AndAlso validword() Then
+            If fullrow AndAlso e.KeyCode = Keys.Return AndAlso validword() Then
                 confirmRow()
             End If
 
