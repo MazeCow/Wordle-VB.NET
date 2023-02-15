@@ -27,12 +27,10 @@ Partial Class Form1
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnMinimize = New System.Windows.Forms.Button()
         Me.flowBoard = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.pnlRestart = New System.Windows.Forms.Panel()
         Me.btnPlayAgainNo = New System.Windows.Forms.Button()
         Me.btnPlayAgainYes = New System.Windows.Forms.Button()
         Me.lblResults = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.CustomTitle.SuspendLayout()
         Me.pnlRestart.SuspendLayout()
         Me.SuspendLayout()
@@ -97,18 +95,6 @@ Partial Class Form1
         Me.flowBoard.Size = New System.Drawing.Size(490, 599)
         Me.flowBoard.TabIndex = 1
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(216, 64)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 19)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "WORDLE"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'pnlRestart
         '
         Me.pnlRestart.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(8, Byte), Integer))
@@ -153,7 +139,7 @@ Partial Class Form1
         '
         'lblResults
         '
-        Me.lblResults.Font = New System.Drawing.Font("Candara", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResults.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold)
         Me.lblResults.ForeColor = System.Drawing.Color.White
         Me.lblResults.Location = New System.Drawing.Point(0, 0)
         Me.lblResults.Name = "lblResults"
@@ -162,26 +148,13 @@ Partial Class Form1
         Me.lblResults.Text = "placeholder"
         Me.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(5, 31)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(192, 78)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "tells u the word for debugging purposes ->"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(19, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(520, 691)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.pnlRestart)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.flowBoard)
         Me.Controls.Add(Me.CustomTitle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -193,7 +166,6 @@ Partial Class Form1
         Me.CustomTitle.PerformLayout()
         Me.pnlRestart.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -202,10 +174,8 @@ Partial Class Form1
     Friend WithEvents btnExit As Button
     Friend WithEvents btnMinimize As Button
     Friend WithEvents flowBoard As FlowLayoutPanel
-    Friend WithEvents Label2 As Label
     Friend WithEvents pnlRestart As Panel
     Friend WithEvents btnPlayAgainYes As Button
     Friend WithEvents lblResults As Label
     Friend WithEvents btnPlayAgainNo As Button
-    Friend WithEvents Label3 As Label
 End Class

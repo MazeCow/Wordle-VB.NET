@@ -61,11 +61,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to aahed,aalii,aargh,aarti,abaca,abaci,aback,abacs,abaft,abaka,abamp,aband,abase,abash,abask,abate,abaya,abbas,abbed,abbes,abbey,abbot,abcee,abeam,abear,abele,abers,abets,abhor,abide,abies,abled,abler,ables,ablet,ablow,abmho,abode,abohm,aboil,aboma,aboon,abord,abore,abort,about,above,abram,abray,abrim,abrin,abris,absey,absit,abuna,abune,abuse,abuts,abuzz,abyes,abysm,abyss,acais,acari,accas,accoy,acerb,acers,aceta,achar,ached,aches,achoo,acids,acidy,acing,acini,ackee,acker,acmes,acmic,acned,acnes,acock,acold,ac [rest of string was truncated]&quot;;.
+        '''  Looks up a localized string similar to aahed,aalii,aargh,aarti,abaca,abaci,abacs,abaft,abaka,abamp,aband,abash,abask,abaya,abbas,abbed,abbes,abcee,abeam,abear,abele,abers,abets,abies,abler,ables,ablet,ablow,abmho,abohm,aboil,aboma,aboon,abord,abore,abram,abray,abrim,abrin,abris,absey,absit,abuna,abune,abuts,abuzz,abyes,abysm,acais,acari,accas,accoy,acerb,acers,aceta,achar,ached,aches,achoo,acids,acidy,acing,acini,ackee,acker,acmes,acmic,acned,acnes,acock,acold,acred,acres,acros,acted,actin,acton,acyls,adaws,adays,adbot,addax,added,adder,addio,ad [rest of string was truncated]&quot;;.
         '''</summary>
-        Friend ReadOnly Property newwords() As String
+        Friend ReadOnly Property choices() As String
             Get
-                Return ResourceManager.GetString("newwords", resourceCulture)
+                Return ResourceManager.GetString("choices", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to aback,abase,abate,abbey,abbot,abhor,abide,abled,abode,abort,about,above,abuse,abyss,acorn,acrid,actor,acute,adage,adapt,adept,admin,admit,adobe,adopt,adore,adorn,adult,affix,afire,afoot,afoul,after,again,agape,agate,agent,agile,aging,aglow,agony,agora,agree,ahead,aider,aisle,alarm,album,alert,algae,alibi,alien,align,alike,alive,allay,alley,allot,allow,alloy,aloft,alone,along,aloof,aloud,alpha,altar,alter,amass,amaze,amber,amble,amend,amiss,amity,among,ample,amply,amuse,angel,anger,angle,angry,angst,anime,an [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property selected() As String
+            Get
+                Return ResourceManager.GetString("selected", resourceCulture)
             End Get
         End Property
     End Module
