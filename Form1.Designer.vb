@@ -28,9 +28,9 @@ Partial Class Form1
         Me.btnMinimize = New System.Windows.Forms.Button()
         Me.flowBoard = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlRestart = New System.Windows.Forms.Panel()
+        Me.lblResults = New System.Windows.Forms.Label()
         Me.btnPlayAgainNo = New System.Windows.Forms.Button()
         Me.btnPlayAgainYes = New System.Windows.Forms.Button()
-        Me.lblResults = New System.Windows.Forms.Label()
         Me.CustomTitle.SuspendLayout()
         Me.pnlRestart.SuspendLayout()
         Me.SuspendLayout()
@@ -107,6 +107,17 @@ Partial Class Form1
         Me.pnlRestart.TabIndex = 4
         Me.pnlRestart.Visible = False
         '
+        'lblResults
+        '
+        Me.lblResults.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.lblResults.ForeColor = System.Drawing.Color.White
+        Me.lblResults.Location = New System.Drawing.Point(0, 0)
+        Me.lblResults.Name = "lblResults"
+        Me.lblResults.Size = New System.Drawing.Size(521, 75)
+        Me.lblResults.TabIndex = 3
+        Me.lblResults.Text = "placeholder"
+        Me.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'btnPlayAgainNo
         '
         Me.btnPlayAgainNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(24, Byte), Integer))
@@ -137,17 +148,6 @@ Partial Class Form1
         Me.btnPlayAgainYes.Text = "YES"
         Me.btnPlayAgainYes.UseVisualStyleBackColor = False
         '
-        'lblResults
-        '
-        Me.lblResults.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblResults.ForeColor = System.Drawing.Color.White
-        Me.lblResults.Location = New System.Drawing.Point(0, 0)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(521, 75)
-        Me.lblResults.TabIndex = 3
-        Me.lblResults.Text = "placeholder"
-        Me.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -175,7 +175,7 @@ Partial Class Form1
     Friend WithEvents btnMinimize As Button
     Friend WithEvents flowBoard As FlowLayoutPanel
     Friend WithEvents pnlRestart As Panel
+    Friend WithEvents btnPlayAgainNo As Button
     Friend WithEvents btnPlayAgainYes As Button
     Friend WithEvents lblResults As Label
-    Friend WithEvents btnPlayAgainNo As Button
 End Class

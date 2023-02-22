@@ -14,6 +14,7 @@ Public Class Form1
     Public Shared Function ReleaseCapture() As Boolean
     End Function
 
+    'IMPORTANT! Replace the CustomTitle and Label1 objects with whatever objects you used in your custom title bar (this does not include the exit or minimize buttons).
     Private Sub CustomTitle_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CustomTitle.MouseDown, Label1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Left Then
             ReleaseCapture()
@@ -145,7 +146,7 @@ Public Class Form1
     End Property
 
     Private allowedletters As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    Private Sub KeyboardPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown, lblResults.KeyDown, CustomTitle.KeyDown
+    Private Sub KeyboardPress(sender As Object, e As KeyEventArgs) Handles Me.KeyDown, CustomTitle.KeyDown, lblResults.KeyDown
         If Not endofgame_forreal Then
 
             'save the last key pressed
@@ -259,6 +260,10 @@ Public Class Form1
     Private Sub btnPlayAgainYes_Click(sender As Object, e As EventArgs) Handles btnPlayAgainYes.Click
         pnlRestart.Visible = False
         generateboard()
+    End Sub
+
+    Private Sub lblResults_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class
 
